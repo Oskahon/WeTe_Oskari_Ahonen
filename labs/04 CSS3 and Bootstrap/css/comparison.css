@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+    text-align: center;
+}
+
+span {
+    font-weight: bold;
+}
+
+table {
+    display: inline-block;
+}
+
+caption {
+    border-bottom: solid;
+    border-color: grey;
+    border-width: 1px;
+    font-weight: bold;
+}
+
+table {
+    border-style: solid;
+    border-width: 1px;
+    border-collapse: collapse;
+}
+
+.property {
+    font-weight: bold;
+    border-right: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.harmaa {
+    background-color: #dddddd;
+}
+
+.punainen {
+    background-color: red;
+    color: white;
+    border-color: black;
+}
+
+tbody {
+    text-indent: 5px;
+    text-align: left;
+}
+

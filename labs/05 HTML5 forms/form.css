@@ -1,0 +1,23 @@
+input[type="text"] {
+    color : blue;
+}
+
+input {
+    margin-bottom: 10px;
+    text-indent: 2px;
+}
+
+form {
+    font-family: Arial, Verdana, sans-serif;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.jotain {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+body {
+    align: center;
+}
