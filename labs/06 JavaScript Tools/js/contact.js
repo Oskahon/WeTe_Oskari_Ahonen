@@ -10,8 +10,10 @@ function process() {
     var okay = true;
     
     // Get form references:
+    var name = document.getElementById('fullName');
     var email = document.getElementById('email');
     var comments = document.getElementById('comments');
+
     // Validate the email address:
     if (!email || !email.value 
     || (email.value.length < 6) 
@@ -38,6 +40,15 @@ function process() {
 
         alert('Comment was trimmed under ' + maxLength + ' characters');
     }
+
+    //Validate name
+    if ((name.value.length < 3) || name.value.length > 100){
+        okay = false;
+        alert('Please enter a valid name.');
+    } else if (name.value.indexOf(' ') < 1 || name.value.charAt(name.value.length-1).includes(' ')){
+        okay = false;
+        alert('Please enter your full name.');
+    }
         
     // Normally you would "return okay;" here to submit/block the form submission
     // return okay;
@@ -50,6 +61,7 @@ function process() {
         message = "Form not submitted";
     }
     console.log(message);
+    console.log("Name:" +name.value);
     console.log("Email: " + email.value);
     console.log("Comments: " + comments.value);
     alert(message);

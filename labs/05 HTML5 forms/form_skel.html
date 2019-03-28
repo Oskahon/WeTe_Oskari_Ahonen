@@ -17,7 +17,7 @@
 				Name: <input type="text" name="studentname" placeholder="Student's name here."/>
 			</div>
 			<div>
-				Student id: <input type="text" name="id" placeholder="Student's id." pattern="d{7}"/>
+				Student id: <input type="text" name="id" placeholder="Student's id." pattern="[0-9]{7}" title="Seitsemän numeroa."/>
 			</div>
 			<div>
 				Email: <input type="email" name="email" placeholder="example@mail.com" oninvalid="this.setCustomValidity('Sähköpostiosoite on virheellinen.')"/>

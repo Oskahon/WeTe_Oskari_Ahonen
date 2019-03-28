@@ -1,8 +1,9 @@
+'use strict'
 
 var notes = new Array();
 
 function addItem() {
-	textbox = document.getElementById('item');
+	let textbox = document.getElementById('item');
 	var itemText = textbox.value;
 	textbox.value = '';
 	textbox.focus();
@@ -29,5 +30,5 @@ function deleteIndex(i) {
 	displayList();
 }
 
-button = document.getElementById('add');
+let button = document.getElementById('add');
 button.onclick = addItem;
