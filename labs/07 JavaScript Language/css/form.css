@@ -73,7 +73,8 @@ border:solid 1px #BFBD9F;
 width:200px;
 margin:2px 0 20px 10px;
 }
-#submit{
+
+#submit, #remove{
 clear:both;
 margin-left:150px;
 width:125px;
@@ -85,6 +86,7 @@ color:#000000;
 font-size:12px;
 font-weight:bold;
 }
+
 #output {
 	clear:both;
 	margin-bottom: 10px;
