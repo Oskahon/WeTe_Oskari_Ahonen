@@ -8,7 +8,9 @@
 <body>
   <span id="ajaxButton" style="cursor: pointer; text-decoration: underline">
     Make a request
-  </span>
+  </span><br>
+  <input type="text" id="teksti">
+  <input type="button" value="request" id="nappi">
 
 
   <script type="text/javascript">
@@ -53,11 +55,29 @@
       if (httpRequest.readyState === 4) {
         if (httpRequest.status === 200) {
           alert(httpRequest.responseText);
+        } else if (httpRequest.status === 404) {
+            alert("Site is down");
         } else {
           alert('There was a problem with the request.');
         }
       }
     }
+
+
+    function sendRequest(){
+        httpRequest = new XMLHttpRequest();
+        httpRequest.onreadystatechange = alertContents;
+
+        let urlreq = document.getElementById("teksti").value;
+        console.log(urlreq);
+
+        httpRequest.open('GET', urlreq);
+        httpRequest.send();
+
+        }
+
+
+    document.getElementById("nappi").addEventListener('click', sendRequest);
   })();
   </script>
 
