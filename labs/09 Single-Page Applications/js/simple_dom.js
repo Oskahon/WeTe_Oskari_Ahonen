@@ -1,12 +1,19 @@
-//console.log('page loaded');
+	//console.log('page loaded');
 
 console.log(document);
 
-document.getElementById('save').onclick = save;
-document.querySelector('#userForm input[type="email"]').onkeypress = function() {
-	console.log('updating email');
-	var email = document.querySelector('#userForm input[type="email"]').value;
-	document.querySelector('#summary p').innerHTML = email;
+document.querySelector('#userForm input[type="text"]').onkeyup = function(){
+	let name = document.querySelector('#userForm input[type="text"]');
+	document.querySelector('h1').innerHTML = name.value;
+};
+document.querySelector('#userForm input[type="email"]').onkeyup = function() {
+	let email = document.querySelector('#userForm input[type="email"]');
+	document.querySelectorAll('p')[0].innerHTML = email.value;
+};
+
+document.querySelector('#userForm input[type="password"]').onkeyup = function(){
+	let password = document.querySelector('#userForm input[type="password"]');
+	document.querySelectorAll('p')[1].innerHTML = password.value;
 };
 
 

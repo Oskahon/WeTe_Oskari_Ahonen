@@ -13,6 +13,12 @@ document.querySelector('#addPage button').onclick = function() {
 	console.log('add note');
 	var title = document.querySelector('#addPage input').value;
 	var note = document.querySelector('#addPage textarea').value;
+	let addition = {title: title, note: note};
+	console.log(addition);
+	notes.push(addition);
+	document.querySelector('#addPage input').value = "";
+	document.querySelector('#addPage textarea').value="";
+
 };
 
 /*
@@ -20,10 +26,27 @@ document.querySelector('#addPage button').onclick = function() {
  */ 
 document.querySelector('nav > ul > li:nth-child(1)').onclick = function() {
 	console.log('first link clicked');
+	document.getElementById('addPage').style.display = 'block';
+	document.getElementById('editPage').style.display = 'none';
+
+
 };
 
 document.querySelector('nav > ul > li:nth-child(2)').onclick = function() {
 	console.log('second link clicked');
+	document.getElementById('editPage').style.display = 'block';
+	document.getElementById('addPage').style.display = 'none';
+	loadList();
+
+};
+
+document.querySelector('#editPage input').onkeyup = function(){
+	updateNote();
+	loadList();
+};
+document.querySelector('#editPage textarea').onkeyup = function(){
+	updateNote();
+	loadList();
 };
 
 
@@ -65,6 +88,7 @@ function rem(element) {
 }
 
 function loadList() {
+	console.log('test'+notes[0]);
 	var table = document.getElementById('list');
 	table.innerHTML = '';
 	for (var i=0; i<notes.length; i++) {
