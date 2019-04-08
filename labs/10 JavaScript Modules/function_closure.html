@@ -1,52 +1,90 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Click me!</title>
-<style> 
-	body, button { margin: 10px; } 
-	div { padding: 10px; }
-</style>
-<script>
+    <meta charset="utf-8">
+    <title>Click me!</title>
+    <style>
+        body, button {
+            margin: 10px;
+        }
 
-/*
-//
-// The version without the closure...
-//
-var count = 0;
-window.onload = function() {
-	var button = document.getElementById("clickme");
-	button.onclick = handleClick;
-};
+        div {
+            padding: 10px;
+        }
+    </style>
+    <script>
 
-function handleClick() {
-	var message = "You clicked me ";
-	var div = document.getElementById("message");
-	count++;
-	div.innerHTML = message + count + " times!";
-}
-*/
+        /*
+        //
+        // The version without the closure...
+        //
+        var count = 0;
+        window.onload = function() {
+            var button = document.getElementById("clickme");
+            button.onclick = handleClick;
+        };
 
-//
-// The version with the closure.
-//
-window.onload = function() {
-	var count = 0; 
-	var message = "You clicked me ";
-	var div = document.getElementById("message");
+        function handleClick() {
+            var message = "You clicked me ";
+            var div = document.getElementById("message");
+            count++;
+            div.innerHTML = message + count + " times!";
+        }
+        */
 
-	var button = document.getElementById("clickme");
-	button.onclick = function() {
-		count++;
-		div.innerHTML = message + count + " times!";
-	};
-};
+        //
+        // The version with the closure.
+        //
+        /*   window.onload = function () {
+               var count = 0;
+               var message = "You clicked me ";
+               var div = document.getElementById("message");
 
-</script> 
-</head> 
+               var button = document.getElementById("clickme");
+               button.onclick = function () {
+                   count++;
+                   div.innerHTML = message + count + " times!";
+               };
+           };
+   */
+        window.onload = function () {
+            let speed = 0;
+            let div = document.getElementById("playback-speed");
+            updateSpeed();
+
+            let min = document.getElementById("miinus");
+            min.onclick = function () {
+                speed--;
+                updateSpeed();
+            };
+
+            let nol = document.getElementById("nolla");
+            nol.onclick = function () {
+                speed = 0;
+                updateSpeed();
+            };
+
+            let plu = document.getElementById("plus");
+            plu.onclick = function () {
+                speed++;
+                updateSpeed();
+            };
+
+            function updateSpeed(){
+                div.innerHTML = "playback-speed: " + speed;
+            }
+        }
+    </script>
+</head>
 <body>
-	<button id="clickme">Click me!</button>
-	<div id="message"></div>
+
+<button id="clickme">Click me!</button>
+<div id="message"></div>
+<button id="miinus">-</button>
+<button id="nolla">0</button>
+<button id="plus">+</button>
+<div id="playback-speed"></div>
+
 </body>
 </html>
 

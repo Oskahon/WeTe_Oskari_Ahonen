@@ -3,7 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>Coffee Constructor</title>
-<script>
+    <script src="js/testi.js"></script>
+
+    <script>
+
+    Object.prototype.sip = function(){
+        console.log("Hmm, tasty.");
+    }
 
 function Coffee(roast, ounces) {
 	this.roast = roast;
@@ -35,12 +41,48 @@ function Coffee(roast, ounces) {
 
 var coffee = new Coffee("House Blend", 12);
 console.log(coffee.order());
+coffee.sip();
 
 var darkRoast = new Coffee("Dark Roast", 16);
 console.log(darkRoast.order());
 
 var specialBlend = new Coffee("Special Blend", 200);
 console.log(specialBlend.order());
+
+function Tea(type, ounces){
+    this.type = type;
+    this.ounces = ounces;
+    this.getSteepTime = function(){
+        if (this.type === "Green Tea"){
+            return 3;
+        } else if (this.type === "Black Tea"){
+            return 5;
+        } else if (this.type === "White Tea"){
+            return 1;
+        }
+    };
+    this.order = function(){
+        let msg;
+        switch (this.getSteepTime()){
+            case 3:
+            case 5:
+            case 1:
+                msg = "You ordered "+this.ounces+" ounces of "+this.type+". The recommended steep time is "+this.getSteepTime()+" minutes.";
+                break;
+            default:
+                msg = "We don't have any "+this.type+".";
+                break;
+        }
+        return msg;
+    }
+}
+
+let tea = new Tea("Green Tea", 10);
+console.log(tea.order());
+tea.sip();
+
+let notea = new Tea("Purple Tea", 20);
+console.log(notea.order());
 
 </script>
 </head>
