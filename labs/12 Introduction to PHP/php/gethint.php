@@ -42,15 +42,27 @@ if ($q !== "") {
     $len=strlen($q);
     foreach($a as $name) {
         if (stristr($q, substr($name, 0, $len))) {
-            if ($hint === "") {
+            $first[]->firstname = $name;
+
+
+
+           /* if ($hint === "") {
                 $hint = $name;
             } else {
                 $hint .= ", $name";
-            }
+            }*/
         }
     }
 }
+if (empty($first)){
+    $first[]->firstname = "no suggestion";
+    $myJson = json_encode($first);
+} else {
+    $myJson = json_encode($first);
+}
 
-// Output "no suggestion" if no hint was found or output correct values 
-echo $hint === "" ? "no suggestion" : $hint;
+
+// Output "no suggestion" if no hint was found or output correct values
+//echo $hint === "" ? "no suggestion" : $hint;
+echo $myJson;
 ?>
